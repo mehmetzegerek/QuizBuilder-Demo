@@ -1,0 +1,112 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="ListViewItem" x:Key="ChatItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="30" Height="30" Margin="10,7,0,-5" VerticalAlignment="Top" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding QuestionImage}" RenderOptions.BitmapScalingMode="Fant"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding SoruID}"
+                                   Foreground="AliceBlue"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,-5,0"/>
+
+                                <Label Content="{Binding Metin}"
+                                   Foreground="AliceBlue"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+
+                                <Label Content="{Binding SecA}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                                <Label Content="{Binding SecB}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                                <Label Content="{Binding SecC}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                                <Label Content="{Binding SecD }"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+                                
+                                <Label Content="{Binding Klasik }"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <!--<Label Content="{Binding Message}"
+                                   Foreground="White"
+                                   FontSize="10"
+                                   VerticalAlignment="Center"/>-->
+                            <TextBlock Text="{Binding Message}" TextWrapping="Wrap" Foreground="White" FontSize="11" Margin="5,0,0,0" Width="250"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Resources>
+            <ControlTemplate x:Key="CustomRow">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding SoruID}"
+                                   Foreground="AliceBlue"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,-5,0"/>
+
+                    <Label Content="{Binding Metin}"
+                                   Foreground="AliceBlue"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+
+                    <Label Content="{Binding SecA}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                    <Label Content="{Binding SecB}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                    <Label Content="{Binding SecC}"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                    <Label Content="{Binding SecD }"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                    <Label Content="{Binding Klasik }"
+                                       Foreground="AliceBlue"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+                </StackPanel>
+            </ControlTemplate>
+        </Style.Resources>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding QuestionImage}" Value="null">
+                <Setter Property="Template" Value="{StaticResource CustomRow}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="QuizBuilder.Quizes.WindowUI.MVVM.View.CreateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuizBuilder.Quizes.WindowUI.MVVM.View"
+             mc:Ignorable="d" 
+             Loaded="CreateView_OnLoaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <Label Content="Sınav Oluşturma Sihirbazı" VerticalAlignment="Center" Padding="10" Foreground="AliceBlue" FontWeight="DemiBold" FontSize="18"/>
+            <Label x:Name="lblCountInfo" Content="Seçilen soru sayısı : 0/20" Foreground="AliceBlue" Padding="10,0,0,0" FontSize="14" Visibility="Hidden"/>
+
+        </StackPanel>
+
+        <!--step1-->
+        <Border Grid.Row="1" x:Name="brdStep1" Visibility="Visible">
+            <DataGrid Grid.Row="1" Style="{StaticResource CustomGrid}" ColumnHeaderStyle="{StaticResource CustomGridHeader}" x:Name="questionDgw" Background="Transparent" 
+                      BorderThickness="0" Padding="10" MouseDoubleClick="QuestionDgw_OnMouseDoubleClick" SelectionChanged="questionDgw_SelectionChanged"
+                      />
+        </Border>
+
+        <!--step2-->
+        <Border Grid.Row="1" x:Name="brdStep2" Visibility="Hidden">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Kaydetmek istediğiniz dosya yolunu seçin" Foreground="AliceBlue" Margin="5,30,0,0"
+                        FontSize="16"/>
+                <StackPanel Orientation="Horizontal" Height="40" Margin="0,20,0,0">
+
+                    <Button Width="100" Height="30" HorizontalAlignment="Left" Margin="15,0,0,0"
+                            Foreground="AliceBlue" Content="Dosya Aç" Style="{StaticResource CustomButton}"
+                            x:Name="btnOpenFolder" Click="BtnOpenFolder_OnClick"/>
+                    <Label x:Name="lblPathInfo" Foreground="AliceBlue" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel x:Name="spnlFileName" Orientation="Vertical" Margin="0,20,0,0" IsEnabled="False">
+                    <StackPanel.Effect>
+                        <BlurEffect Radius="2" RenderingBias="Performance"/>
+                    </StackPanel.Effect>
+                    <Label Content="Dosya adını girin :" Foreground="AliceBlue" Padding="10,0,0,5" VerticalContentAlignment="Center"
+                           FontSize="15"/>
+                    <TextBox x:Name="tbxFileName" Style="{StaticResource CustomTextBox}" Width="300" Height="30" HorizontalAlignment="Left"
+                             Margin="10,5,0,0" TextWrapping="NoWrap" VerticalContentAlignment="Center"/>
+                </StackPanel>
+                
+                
+            </StackPanel>
+        </Border>
+        
+        <Button x:Name="btnAccept" Grid.Row="2" Width="100" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10"
+                Style="{StaticResource CustomButton}" Content="Onayla" Foreground="AliceBlue" Click="ButtonBase_OnClick"
+                Visibility="Hidden"/>
+    </Grid>
+</UserControl>

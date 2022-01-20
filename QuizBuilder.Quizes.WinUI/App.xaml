@@ -1,0 +1,35 @@
+﻿<Application x:Class="QuizBuilder.Quizes.WinUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:QuizBuilder.Quizes.WinUI"
+             xmlns:viewModel ="clr-namespace:QuizBuilder.Quizes.WinUI.MVVM.ViewModel"
+             xmlns:view ="clr-namespace:QuizBuilder.Quizes.WinUI.MVVM.View"
+             StartupUri="LoaderWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/BtnCloseTheme.xaml"/>
+                <ResourceDictionary Source="Themes/BtnHideTheme.xaml"/>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/QuestionItemTheme.xaml"/>
+                <ResourceDictionary Source="Themes/CustomDataGridTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ManageViewModel}">
+                <view:ManageView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CreateViewModel}">
+                <view:CreateView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+        
+         
+    </Application.Resources>
+    
+</Application>

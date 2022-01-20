@@ -1,0 +1,48 @@
+﻿<Application x:Class="QuizBuilder.Quizes.WindowUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:QuizBuilder.Quizes.WindowUI"
+             xmlns:viewModel="clr-namespace:QuizBuilder.Quizes.WindowUI.MVVM.ViewModel"
+             xmlns:view="clr-namespace:QuizBuilder.Quizes.WindowUI.MVVM.View"
+             StartupUri="LoadScreen.xaml">
+    <Application.Resources>
+         
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/CustomDataGridTheme.xaml"/>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/BtnCloseTheme.xaml"/>
+                <ResourceDictionary Source="Themes/BtnHideTheme.xaml"/>
+                <ResourceDictionary Source="Themes/QuestionItemTheme.xaml"/>
+                <ResourceDictionary Source="Themes/CustomMenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/ComboBoxTheme.xaml"/>
+                <ResourceDictionary Source="Themes/CustomButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/MessageBoxTheme.xaml"/>
+                <ResourceDictionary Source="Themes/ImageButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/ImageBoxTheme.xaml"/>
+                <ResourceDictionary Source="Themes/LinkLabelButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <DataTemplate DataType="{x:Type viewModel:CreateViewModel}">
+                <view:CreateView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ManageViewModel}">
+                <view:ManageView/>
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+
+
+
+        
+
+
+    </Application.Resources>
+</Application>

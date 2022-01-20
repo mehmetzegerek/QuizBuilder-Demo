@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="QuizBuilder.Quizes.WindowUI.MVVM.View.ManageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuizBuilder.Quizes.WindowUI.MVVM.View"
+             mc:Ignorable="d" 
+             Loaded="ManageView_OnLoaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/> 
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Yönetim Sihirbazı" VerticalAlignment="Center" Padding="10" 
+               Foreground="AliceBlue" FontWeight="DemiBold" FontSize="18"/>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" ZIndex="0">
+            <StackPanel Orientation="Horizontal">
+
+                <ToggleButton x:Name="btnChange" Style="{StaticResource CustomMenuButton}" Content="Sınavları Yönet" Foreground="AliceBlue" 
+                              Width="100" Height="25" Margin="10,0,0,0" Click="ToggleButton_Click" Checked="BtnChange_OnChecked"
+                              Unchecked="BtnChange_OnChecked"/>
+
+                <Button x:Name="btnRefresh" Margin="745,0,0,0" Width="25" Style="{StaticResource CustomButton}"
+                        Content="⟳" FontSize="18" Foreground="AliceBlue" Click="BtnRefresh_OnClick">
+                </Button>
+
+                <ComboBox Margin="10,0,0,0" Style="{StaticResource ComboBoxFlatStyle}" Width="100"
+                          x:Name="cbxFilter"/>
+            </StackPanel>
+            <DataGrid Grid.Row="1" Padding="10,0,10,0" Background="Transparent" x:Name="dgwItems" Style="{StaticResource CustomGrid}"
+                      ColumnHeaderStyle="{StaticResource CustomGridHeader}" BorderThickness="0" MouseDoubleClick="DgwItems_OnMouseDoubleClick" 
+                      SelectionChanged="DgwItems_OnSelectionChanged" Height="300"/>
+        </StackPanel>
+        <!--open window-->
+        
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="btnDelete" Margin="10,0,0,0" Height="30" Width="100" Content="Sil" Style="{StaticResource CustomButton}"
+                    Foreground="AliceBlue" Visibility="Hidden" Click="BtnDelete_OnClick"/>
+            <Button x:Name="btnAction" Height="30" Width="100" Margin="780,0,0,0" Style="{StaticResource CustomButton}"
+                    Content="Ekle"  Foreground="AliceBlue" Click="BtnAction_OnClick" />
+            
+        </StackPanel>
+        
+
+
+    </Grid>
+</UserControl>
+     
